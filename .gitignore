@@ -50,3 +50,35 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+#include <stdio.h>
+
+//Compiler version gcc  6.3.0
+
+int main()
+{
+  int arr[20], i,j,k,size;
+  printf("Enter the size of the array :");
+  scanf("%d",&size);
+  
+  printf("Enter the elements of the array: ");
+  for (i=0;i<size;i++){
+    scanf("%d",&arr[i]);
+  }
+  for (i=0;i<size;i++){
+    for (j=i+1;j<size;j++){
+      if (arr[i]==arr[j]){
+        for (k=j;k<size-1;k++){
+          arr[k]=arr[k+1];
+        }
+        size--;
+        j--;
+      }
+    }
+  }
+  printf("Array after removing the duplicate elements :");
+  for (i=0;i<size;i++){
+    printf("%d\t",arr[i]);
+  }
+  return 0;
+}
